@@ -1,0 +1,23 @@
+footer{
+}
+footer img{
+    width: 200px;
+}
+.social{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.social ul{
+    display: flex;
+}
+.social ul li{
+    list-style: none;
+}
+
+.social img{
+width: 30px;
+height: 30px;
+filter: invert(1);
+margin-left: 10px;
+}
