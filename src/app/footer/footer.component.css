@@ -1,5 +1,3 @@
-footer{
-}
 footer img{
     width: 200px;
 }
@@ -8,16 +6,28 @@ footer img{
     align-items: flex-start;
     justify-content: flex-start;
 }
-.social ul{
-    display: flex;
-}
-.social ul li{
+
+.social  li{
     list-style: none;
 }
 
-.social img{
-width: 30px;
-height: 30px;
-filter: invert(1);
-margin-left: 10px;
+.fb{
+    background: url(../../assets/img/facebook.svg) no-repeat;
+}
+.li{
+    background: url(../../assets/img/linkedin.svg) no-repeat;
+}
+.gh{
+    background: url(../../assets/img/github.svg) no-repeat;
+}
+.fb, .li, .gh{
+width: 25px;
+height: 25px;
+background-size: contain;
+background-position: center;
+margin-right: 10px;
+transition: 500ms;
+}
+.fb:hover, .li:hover, .gh:hover{
+    filter: invert(1);
 }

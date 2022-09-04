@@ -35,4 +35,51 @@
     height: 1px;
     background-color: black;
     margin: auto;
+    margin-bottom: 5rem;
+}
+.card{
+    position: relative;
+    max-width: 300px;
+    max-height: 180px;
+    background: #fff;
+    padding: 20px 30px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 3px 0 30px rgba(0, 0, 0, .5);
+    transition: .3s ease-in-out;
+}
+.card:hover{
+    max-height: 420px;
+    
+}
+.imgBox{
+    position: relative;
+    width: 240px;
+    height: 240px;
+    z-index: 1;
+    top: -50px;
+}
+.imgBox img{
+    max-width: 100%;
+    border-radius: 8px;    
+}
+.card .content{
+    position: relative;
+    padding: 10px 0;
+    bottom: 50px;
+  visibility: hidden;
+  opacity: 0;
+    transition: .3s linear;
+}
+.card:hover .content{
+   visibility: visible;
+   opacity: 1;
+    bottom: 50px;
+    transition-delay: .2s;
+}
+.search-trip{
+   margin-top: 3rem;
+   padding: 5rem;
+   background: rgb(80, 136, 185);
 }
