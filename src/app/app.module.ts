@@ -10,6 +10,8 @@ import { RegisterComponent } from './user/register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowseTripsComponent } from './browse-trips/browse-trips.component';
 import { SearchTripsComponent } from './search-trips/search-trips.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SearchTripsComponent } from './search-trips/search-trips.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

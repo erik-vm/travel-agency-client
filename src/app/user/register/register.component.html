@@ -1,31 +1,47 @@
 <div class="row login-form">
     <div class="col-6">
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName">
+              <input type="text" class="form-control" id="firstName" formControlName="firstName">
             </div>
             <div class="mb-3">
               <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName">
+              <input type="text" class="form-control" id="lastName"
+              formControlName="lastName">
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
-              </div>
+            
               <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address">
+                <input type="text" class="form-control" id="address"
+                formControlName="address">
               </div>
               <div class="mb-3">
                 <label for="phoneNumber" class="form-label">Phone number</label>
-                <input type="tel" class="form-control" id="phoneNumber">
+                <input type="tel" class="form-control" id="phoneNumber"
+                formControlName="phoneNumber">
               </div>
               <div class="mb-3">
                 <label for="dob" class="form-label">Date of birth</label>
-                <input type="date" class="form-control" id="dob">
+                <input type="date" class="form-control" id="dob"
+                formControlName="dob">
               </div>
-            <button type="submit" class="btn btn-secondary">Submit</button>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email / username</label>
+                <input type="email" class="form-control" id="email"
+                formControlName="email">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password"
+                formControlName="password">
+              </div>
+              <div class="mb-3">
+                <label for="confirm" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" id="confirm"
+                formControlName="confirmPassword">
+              </div>
+            <button type="submit" class="btn btn-secondary" [disabled]="registerForm.invalid">Register</button>
           </form>
     </div>
     <div class="col-6 text-center d-flex flex-column align-items-center">
