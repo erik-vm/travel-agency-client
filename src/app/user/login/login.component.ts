@@ -10,6 +10,9 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    //AFter request to backend. Save the user pin sessionstorage.
+
+    //sessionStorage.setItem("user", user);
   }
 
 }

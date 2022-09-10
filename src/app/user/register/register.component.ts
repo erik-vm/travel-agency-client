@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
+
 
 @Component({
   selector: 'app-register',
@@ -46,4 +49,7 @@ registerForm: FormGroup = this.fb.group({
     }
   }
 
+  doPasswordMatch(password:String, confirmPassword:String){
+
+  }
 }
