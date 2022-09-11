@@ -49,7 +49,5 @@ registerForm: FormGroup = this.fb.group({
     }
   }
 
-  doPasswordMatch(password:String, confirmPassword:String){
 
-  }
 }

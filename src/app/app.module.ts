@@ -8,8 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { FooterComponent } from './footer/footer.component';
-import { BrowseTripsComponent } from './browse-trips/browse-trips.component';
-import { SearchTripsComponent } from './search-trips/search-trips.component';
+import { BrowseTripsComponent } from './trips/browse-trips/browse-trips.component';
+import { SearchTripsComponent } from './trips/search-trips/search-trips.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
