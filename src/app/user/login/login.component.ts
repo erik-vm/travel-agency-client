@@ -36,8 +36,6 @@ export class LoginComponent implements OnInit {
     //sessionStorage.setItem("user", user);
   }
   
-  login(){
-    this.authService.login()
-  }
+ 
 
 }
