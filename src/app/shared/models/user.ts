@@ -11,5 +11,6 @@ export interface User {
     phoneNumber: string,
     dob: Date,
     isActive: boolean,
-    authority: Authority
+    authority: Authority,
+    token: string
 }

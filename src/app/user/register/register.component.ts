@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpService } from 'src/app/http.service';
+import {UserHttp} from '../../shared/services/user-http.service'
 
 
 @Component({
@@ -32,7 +32,7 @@ registerForm: FormGroup = this.fb.group({
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private httpService: HttpService,
+    private userHttp: UserHttp,
     private route: ActivatedRoute
   ) { }
 
@@ -41,7 +41,7 @@ registerForm: FormGroup = this.fb.group({
 
   onSubmit():void{
     if(this.registerForm.valid){
-      this.httpService.addNewUser(this.registerForm.getRawValue()).subscribe(()=>{
+      this.userHttp.register(this.registerForm.getRawValue()).subscribe(()=>{
         this.router.navigate(['/login']);
       });
     }else{
