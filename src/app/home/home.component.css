@@ -82,4 +82,40 @@
    margin-top: 3rem;
    padding: 5rem;
    background: rgb(80, 136, 185);
+   color: #fff;
+}
+.search-trip .line{
+    background-color: #fff;
+}
+.search-form{
+    width: 70%;
+    margin: auto;
+}
+.search-form input{
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.438);
+    border-radius: 0%;
+    font-family: 'Satisfy', cursive;
+    font-size: 2rem;
+}
+.search-form input:focus{
+box-shadow: none;
+}
+.search-form input::placeholder{
+    color: #fff;
+    font-family: 'Satisfy', cursive;
+    font-size: 2rem;
+}
+.about-us-header{
+    align-items: flex-end;
+}
+.about-us-header img{
+width: 70px;
+}
+.about-us a{
+color: inherit;
+line-height: 1.5rem;
+text-decoration: none;
 }

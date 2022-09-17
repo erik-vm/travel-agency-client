@@ -12,12 +12,15 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  loginForm: FormGroup = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  });
   loading = false;
   submitted = false;
 
   constructor(     
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private userHttp : UserHttp,
@@ -27,41 +30,38 @@ export class LoginComponent implements OnInit {
   
 
   ngOnInit(): void {
-      this.form = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
-        });
+    
   }
 
 // convenience getter for easy access to form fields
-get f() { return this.form.controls; }
+get f() { return this.loginForm.controls; }
 
-onSubmit() {
-    this.submitted = true;
+// onSubmit() {
+//     this.submitted = true;
 
-    // reset alerts on submit
-    this.alertService.clear();
+//     // reset alerts on submit
+//     this.alertService.clear();
 
-    // stop here if form is invalid
-    if (this.form.invalid) {
-        return;
-    }
+//     // stop here if form is invalid
+//     if (this.loginForm.invalid) {
+//         return;
+//     }
 
-    this.loading = true;
-    this.userHttp.login(this.f.username.value, this.f.password.value)
-        .pipe(first())
-        .subscribe({
-            next: () => {
-                // get return url from query parameters or default to home page
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigateByUrl(returnUrl);
-            },
-            error: error => {
-                this.alertService.error(error);
-                this.loading = false;
-            }
-        });
-}
+//     this.loading = true;
+//     this.userHttp.login(this.f.username.value, this.f.password.value)
+//         .pipe(first())
+//         .subscribe({
+//             next: () => {
+//                 // get return url from query parameters or default to home page
+//                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+//                 this.router.navigateByUrl(returnUrl);
+//             },
+//             error: error => {
+//                 this.alertService.error(error);
+//                 this.loading = false;
+//             }
+//         });
+// }
 
 
 }

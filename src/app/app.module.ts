@@ -12,6 +12,7 @@ import { BrowseTripsComponent } from './trips/browse-trips/browse-trips.componen
 import { SearchTripsComponent } from './trips/search-trips/search-trips.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TripInfoComponent } from './trips/trip-info/trip-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     FooterComponent,
     BrowseTripsComponent,
-    SearchTripsComponent
+    SearchTripsComponent,
+    TripInfoComponent
   ],
   imports: [
     BrowserModule,
