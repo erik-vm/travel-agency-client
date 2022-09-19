@@ -1,5 +1,7 @@
 <div class="row login-form">
     <div class="col-6">
+      <div class="background_reg"></div>
+
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="firstName" class="form-label">First name</label>
@@ -10,7 +12,7 @@
               <input type="text" class="form-control" id="lastName"
               formControlName="lastName">
             </div>
-            
+
               <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
                 <input type="text" class="form-control" id="address"
@@ -49,3 +51,4 @@
         <p>Don't worry! We never share your <br> information with third party.</p>
     </div>
 </div>
+
