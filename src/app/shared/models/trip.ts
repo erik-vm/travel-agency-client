@@ -1,19 +1,25 @@
 import { DecimalPipe } from "@angular/common";
+import { Airport } from "./airport";
 import { City } from "./city";
+import { Hotel } from "./hotel";
 
 
 export interface Trip {
     UUID: string,
     departureCity: City,
-    destinationCity: City,
+    arrivalCity: City,
+    departureAirport: Airport,
+    arrivalAirport: Airport,
+    arrivalHotel: Hotel,
+    hotelBasis: string,
     departureDate: Date,
     returnDate: Date,
     numberOfDays: BigInt,
-    type: string,
     priceForAdult: DecimalPipe,
     priceForChild: DecimalPipe,
     promoted: boolean,
     bedForAdults: BigInt,
     bedForChildren: BigInt,
-    isActive: boolean;
+    isActive: boolean,
+    timesBooked: BigInt
 }

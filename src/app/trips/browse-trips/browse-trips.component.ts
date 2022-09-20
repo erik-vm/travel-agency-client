@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Trip } from 'src/app/shared/models/trip';
+import { TripsService } from 'src/app/shared/services/trips.service';
+
 
 @Component({
   selector: 'app-browse-trips',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseTripsComponent implements OnInit {
 
-  constructor() { }
+  trips: Array<Trip> = [];
+
+  constructor(private tripService : TripsService) { }
 
   ngOnInit(): void {
+    this.getTrips();
+  }
+
+  removeTrip(id: string): void{
+    this.tripService.removeTripById(id).subscribe(()=> {
+      this.getTrips();
+    })
+  }
+
+  getTrips() : void{
+    this.tripService.findPromotedTrips().subscribe((data : Array <Trip>) : void => {
+      this.trips = data;
+    })
   }
 
 }

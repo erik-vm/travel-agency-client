@@ -1,1 +1,27 @@
-<p>browse-trips works!</p>
+<div class="container fluid my-5 pt-5">
+  <app-search-trips></app-search-trips>
+
+  <table class="table table-boarded mt-5">
+    <thead>
+      <tr>
+        <th>Departing</th>
+        <th>Arriving</th>
+        <th>Dep.date</th>
+        <th>Ret.date</th>
+        <th>Price</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trip of trips;let i = index">
+        <td>{{ trip.departureAirport.name}} ({{trip.departureCity.name}})</td>
+        <td>{{ trip.arrivalAirport.name}} ({{trip.arrivalCity.name}})</td>
+        <td>{{ trip.departureDate | date}}</td>
+        <td>{{ trip.returnDate | date}}</td>
+        <td>{{ trip.priceForAdult}} &euro; </td>
+        <td><button type="button" class="btn btn-sm btn-danger" (click)="removeTrip(trip.UUID)">DELETE</button> </td>
+        <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/trip/edit', trip.UUID]">EDIT</button> </td>
+      </tr>
+    </tbody>
+ </table>
+</div>

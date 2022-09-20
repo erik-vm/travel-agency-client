@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
-  ValidatorFn,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {UserHttp} from '../../shared/services/user-http.service'
@@ -32,8 +30,7 @@ registerForm: FormGroup = this.fb.group({
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private userHttp: UserHttp,
-    private route: ActivatedRoute
+    private userHttp: UserHttp
   ) { }
 
   ngOnInit(): void {
