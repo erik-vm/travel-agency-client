@@ -16,7 +16,7 @@
     background-color: rgba(80, 45, 0, 0.4);
     padding: 2rem;
     border-radius: 20px;
-    color: cyan;
+    color: rgb(255, 255, 255);
     font-family: 'Satisfy', cursive;
     text-align: center;
 }
@@ -41,7 +41,7 @@
     position: relative;
     max-width: 300px;
     max-height: 180px;
-    background: cyan;
+    background: rgb(255, 255, 255);
     padding: 20px 30px;
     margin: 10px;
     border-radius: 8px;
