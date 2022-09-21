@@ -1,0 +1,26 @@
+<section class="continent-form">
+    <div class="container">
+      <form [formGroup]="countryForm" (ngSubmit)="onSubmit()" class="form-signin">
+         <h2>{{isEditing ? 'Edit' : 'Add'}} the country</h2>
+         <div id="data" class="row">
+          <div class="col-6">
+          <div class="form-group">
+            <label for="country-name">Country name<span class="sda-required"></span></label>
+            <input type="text" id="country-name" class="form-control" formControlName="countryName">
+            <span class="help-block" *ngIf="countryForm.get('countryName')?.errors?.required && countryForm.get('countryName')?.touched">It is a required value</span>
+            <span class="help-block" *ngIf="countryForm.get('countryName')?.errors?.countryNameForbidden && countryForm.get('countryName')?.touched">you can't use that name</span>
+          </div>
+        </div>
+          <div class="col-6">
+          <div class="form-group">
+            <label for="capital">Continent<span class="sda-required"></span></label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option *ngFor="let cont of continents">{{cont.name}}</option>
+            </select>
+          </div>
+        </div>
+          </div>
+        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [disabled]="countryForm.invalid">Submit</button>
+      </form>
+ </div>

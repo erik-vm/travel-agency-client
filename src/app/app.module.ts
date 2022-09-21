@@ -13,6 +13,14 @@ import { SearchTripsComponent } from './trips/search-trips/search-trips.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TripFormComponent } from './trips/trip-form/trip-form.component';
+import { CountryFormComponent } from './countries/country-form/country-form.component';
+import { CityFormComponent } from './cities/city-form/city-form.component';
+import { AirportTableComponent } from './airports/airport-table/airport-table.component';
+import { AirportFormComponent } from './airports/airport-form/airport-form.component';
+import { CityTableComponent } from './cities/city-table/city-table.component';
+import { CountryTableComponent } from './countries/country-table/country-table.component';
+import { HotelTableComponent } from './hotels/hotel-table/hotel-table.component';
+import { HotelFormComponent } from './hotels/hotel-form/hotel-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +32,15 @@ import { TripFormComponent } from './trips/trip-form/trip-form.component';
     FooterComponent,
     BrowseTripsComponent,
     SearchTripsComponent,
-    TripFormComponent
+    TripFormComponent,
+    CountryFormComponent,
+    CityFormComponent,
+    AirportTableComponent,
+    AirportFormComponent,
+    CityTableComponent,
+    CountryTableComponent,
+    HotelTableComponent,
+    HotelFormComponent
   ],
   imports: [
     BrowserModule,
