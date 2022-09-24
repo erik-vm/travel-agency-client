@@ -1,1 +1,54 @@
-<p>trip-form works!</p>
+<div class="trips-form">
+    <form [formGroup]="tripForm" (ngSubmit)="onSubmit()" class="form-signin">
+       <h2>{{isEditing ? 'Edit' : 'Add'}} the trip</h2>
+       <div id="data" class="row">
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+          <label for="depAirport">Departure airport</label>
+          <select id="depAirport" class="form-control">
+            <option *ngFor="let airport of airports" [value]="airport.name">{{ airport.name }} ( {{airport.city.name}}, {{airport.city.country.name}} )</option>
+          </select>
+        </div>
+      </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="desAirport">Destination airport</label>
+            <select id="desAirport" class="form-control">
+                <option *ngFor="let airport of airports" [value]="airport.name">{{ airport.name }} ( {{airport.city.name}}, {{airport.city.country.name}})</option>
+            </select>
+          </div>
+        </div>
+</div>
+     
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="form-group">
+          <label for="depDate">Departure date</label>
+          <input class="form-control" id="depDate" type="date" placeholder="Default input" aria-label="default input example">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="retDate">Return date</label>
+          <input class="form-control" id="retDate" type="date" placeholder="Default input" aria-label="default input example">
+        </div>
+      </div>
+</div>
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="form-group">
+          <label for="desAirport">Hotel</label>
+          <select id="desAirport" class="form-control">
+              <option *ngFor="let hotel of hotels" [value]="hotel.name">{{ hotel.name }})</option>
+          </select>
+        </div>
+      </div>
+</div>
+        
+        </div>
+     
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [disabled]="tripForm.invalid">Submit</button>
+    </form>
+</div>
