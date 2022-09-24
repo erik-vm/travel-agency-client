@@ -1,7 +1,7 @@
 import { Continent } from "./continent";
 
 export interface Country {
-    UUID: string,
+    id: string,
     name: string,
     continent: Continent
     isActive: boolean

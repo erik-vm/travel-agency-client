@@ -1,1 +1,22 @@
-<p>hotel-table works!</p>
+<div class="hotel-table ">
+    <div class="row">
+      <button type="button" class="btn btn-sm btn-success" routerLink="/countries/add">ADD</button>
+  </div>
+      <table class="table table-boarded">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hotel of hotels;let i = index">
+          <td>{{ hotel.name}}</td>
+          <td>{{ hotel.city.name}}</td>
+          <td><button type="button" class="btn btn-sm btn-danger" (click)="removeHotel(hotel.id)">DELETE</button> </td>
+          <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/hotels/edit', hotel.id]">EDIT</button> </td>
+        </tr>
+      </tbody>
+   </table>
+  </div>

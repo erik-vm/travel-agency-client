@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Airport } from 'src/app/shared/models/airport';
+import { AirportsService } from 'src/app/shared/services/airports.service';
 
 @Component({
   selector: 'app-airport-table',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AirportTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private airportService : AirportsService) { }
+
+airports : Array<Airport> = [];
 
   ngOnInit(): void {
+    this.getAirports();
   }
+
+
+getAirports(){
+  this.airportService.getAllAirports().subscribe((data:Array<Airport>): void => {
+    this.airports = data
+  })
+}
+
+removeAirport(id: string):void{
+  this.airportService.deleteAirportById(id).subscribe(() => {
+    this.getAirports();
+  })
+}
 
 }

@@ -19,8 +19,8 @@
         <td>{{ trip.departureDate | date}}</td>
         <td>{{ trip.returnDate | date}}</td>
         <td>{{ trip.priceForAdult}} &euro; </td>
-        <td><button type="button" class="btn btn-sm btn-danger" (click)="removeTrip(trip.UUID)">DELETE</button> </td>
-        <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/trips/edit', trip.UUID]">EDIT</button> </td>
+        <td><button type="button" class="btn btn-sm btn-danger" (click)="removeTrip(trip.id)">DELETE</button> </td>
+        <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/trips/edit', trip.id]">EDIT</button> </td>
       </tr>
     </tbody>
  </table>

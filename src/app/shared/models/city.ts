@@ -1,7 +1,7 @@
 import { Country } from "./country";
 
 export interface City {
-    UUID: string,
+    id: string,
     name: string,
     country: Country
     isActive: boolean

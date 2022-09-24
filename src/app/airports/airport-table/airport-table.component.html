@@ -1,1 +1,24 @@
-<p>airport-table works!</p>
+<div class="airports-table">
+    <div class="row">
+        <button type="button" class="btn btn-sm btn-success" routerLink="/airports/add">ADD</button>
+    </div>
+      <table class="table table-boarded">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let airport of airports;let i = index">
+            <td>{{ airport.name}}</td>
+            <td>{{ airport.city.name}}</td>
+            <td>{{ airport.city.country.name}}</td>
+            <td><button type="button" class="btn btn-sm btn-danger" (click)="removeAirport(airport.id)">DELETE</button> </td>
+            <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/airports/edit', airport.id]">EDIT</button> </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

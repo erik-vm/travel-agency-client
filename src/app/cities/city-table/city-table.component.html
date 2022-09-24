@@ -1,1 +1,22 @@
-<p>city-table works!</p>
+<div class="city-table ">
+    <div class="row">
+      <button type="button" class="btn btn-sm btn-success" routerLink="/countries/add">ADD</button>
+  </div>
+      <table class="table table-boarded">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of cities;let i = index">
+          <td>{{ city.name}}</td>
+          <td>{{ city.country.name}}</td>
+          <td><button type="button" class="btn btn-sm btn-danger" (click)="removeCity(city.id)">DELETE</button> </td>
+          <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/cities/edit', city.id]">EDIT</button> </td>
+        </tr>
+      </tbody>
+   </table>
+  </div>

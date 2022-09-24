@@ -1,5 +1,5 @@
 export interface Continent {
-    UUID: string,
+    id: string,
     name: string,
     isActive: boolean
 }

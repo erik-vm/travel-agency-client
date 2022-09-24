@@ -1,1 +1,26 @@
-<p>airport-form works!</p>
+    <div class="airport-form">
+      <form [formGroup]="airportForm" (ngSubmit)="onSubmit()" class="form-signin">
+         <h2>{{isEditing ? 'Edit' : 'Add'}} the airport</h2>
+         <div id="data" class="row">
+
+            <div class="col-6">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input  id="airportName" class="form-control" formControlName="airportName">
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <select id="city" class="form-control" formControlName="flag">
+                    <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+                  </select>
+                </div>
+              </div>
+
+          </div>
+       
+        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [disabled]="airportForm.invalid">Submit</button>
+      </form>
+ </div>

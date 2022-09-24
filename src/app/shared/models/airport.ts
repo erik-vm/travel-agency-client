@@ -1,7 +1,7 @@
 import { City } from "./city";
 
 export interface Airport {
-    UUID: string,
+    id: string,
     name: string,
     city: City,
     isActive: boolean

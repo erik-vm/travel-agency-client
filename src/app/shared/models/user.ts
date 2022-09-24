@@ -1,7 +1,7 @@
 import { Authority } from "./authority";
 
 export interface User {
-    UUID : string,
+    id : string,
     userName: string,
     password: string,
     firstName: string,

@@ -9,12 +9,12 @@
             <span class="help-block" *ngIf="countryForm.get('countryName')?.errors?.required && countryForm.get('countryName')?.touched">It is a required value</span>
           </div>
         </div>
-          <div class="col-6">
+          
+        <div class="col-6">
           <div class="form-group">
             <label for="continent">Continent</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select continent</option>
-              <option *ngFor="let cont of continents">{{cont.name}}</option>
+            <select id="continent" class="form-control">
+              <option *ngFor="let continent of continents" [value]="continent.name">{{ continent.name }}</option>
             </select>
           </div>
         </div>

@@ -31,7 +31,7 @@ export class CountryFormComponent implements OnInit {
     countryForm : FormGroup = this.fb.group({
       id: null,
       countryName : [null, [Validators.required]],
-      continent: [null, [Validators.required]]
+      continent: null
     })
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class CountryFormComponent implements OnInit {
           this.countryForm.patchValue(data);
         })
       }
-    })
+    });
     this.getContinents();
   }
 

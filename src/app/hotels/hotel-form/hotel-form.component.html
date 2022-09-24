@@ -1,1 +1,24 @@
-<p>hotel-form works!</p>
+<div class="country-form">
+    <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()" class="form-signin">
+       <h2>{{isEditing ? 'Edit' : 'Add'}} the country</h2>
+       <div id="data" class="row">
+        <div class="col-6">
+        <div class="form-group">
+          <label for="country-name">Hotel name</label>
+          <input type="text" id="hotel-name" class="form-control" formControlName="hotelName">
+          <span class="help-block" *ngIf="hotelForm.get('hotelName')?.errors?.required && hotelForm.get('hotelName')?.touched">It is a required value</span>
+        </div>
+      </div>
+        
+      <div class="col-6">
+        <div class="form-group">
+          <label for="city">City</label>
+          <select id="city" class="form-control">
+            <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+          </select>
+        </div>
+      </div>
+        </div>
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [disabled]="hotelForm.invalid">Submit</button>
+    </form>
+</div>

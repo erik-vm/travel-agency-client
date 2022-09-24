@@ -53,7 +53,7 @@ update(id, params) {
     return this.httpClient.put(`${environment.baseURL}/users/${id}`, params)
         .pipe(map(x => {
             // update stored user if the logged in user updated their own record
-            if (id == this.userValue.UUID) {
+            if (id == this.userValue.id) {
                 // update local storage
                 const user = { ...this.userValue, ...params };
                 localStorage.setItem('user', JSON.stringify(user));
@@ -69,7 +69,7 @@ delete(id: string) {
     return this.httpClient.delete(`${environment.baseURL}/users/${id}`)
         .pipe(map(x => {
             // auto logout if the logged in user deleted their own record
-            if (id == this.userValue.UUID) {
+            if (id == this.userValue.id) {
                 this.logout();
             }
             return x;

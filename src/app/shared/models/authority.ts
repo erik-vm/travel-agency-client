@@ -1,5 +1,5 @@
 export interface Authority {
-    UUID: string,
+    id: string,
     name: string,
     isActive: boolean
 }

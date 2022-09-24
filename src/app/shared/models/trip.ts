@@ -5,7 +5,7 @@ import { Hotel } from "./hotel";
 
 
 export interface Trip {
-    UUID: string,
+    id: string,
     departureCity: City,
     arrivalCity: City,
     departureAirport: Airport,

@@ -1,1 +1,24 @@
-<p>city-form works!</p>
+<div class="city-form">
+    <form [formGroup]="cityForm" (ngSubmit)="onSubmit()" class="form-signin">
+       <h2>{{isEditing ? 'Edit' : 'Add'}} the city</h2>
+       <div id="data" class="row">
+        <div class="col-6">
+        <div class="form-group">
+          <label for="city-name">City name</label>
+          <input type="text" id="city-name" class="form-control" formControlName="cityName">
+          <span class="help-block" *ngIf="cityForm.get('cityName')?.errors?.required && cityForm.get('cityName')?.touched">It is a required value</span>
+        </div>
+      </div>
+        
+      <div class="col-6">
+        <div class="form-group">
+          <label for="continent">Country</label>
+          <select id="country" class="form-control" formControlName="countries">
+            <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+          </select>
+        </div>
+      </div>
+        </div>
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [disabled]="cityForm.invalid">Submit</button>
+    </form>
+</div>
