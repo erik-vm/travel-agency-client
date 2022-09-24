@@ -9,16 +9,10 @@ import { Country } from '../models/country';
   providedIn: 'root'
 })
 export class CountriesService {
-  private countrySubject: BehaviorSubject<Country>;
-  public country: Observable<Country>;
 
-  constructor(private httpClient: HttpClient, private router : Router) { 
-    this.countrySubject = new BehaviorSubject<Country>(JSON.parse(localStorage.getItem('continent')));
-    this.country = this.countrySubject.asObservable();
+  constructor(private httpClient: HttpClient) { 
   }
-  public get countryValue(): Country{
-    return this.countrySubject.value;
-  }
+
 
   addCountry(country: Country){
     return this.httpClient.post(`${environment.baseURL}/country/`, country)
@@ -28,18 +22,18 @@ export class CountriesService {
   }
 
   removeCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/delete/${id}`)
+    return this.httpClient.get(`${environment.baseURL}/country/delete/id=${id}`)
   }
 
   restoreCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/restore/${id}`)
+    return this.httpClient.get(`${environment.baseURL}/country/restore/id=${id}`)
   }
 
   getAllCountries(){
     return this.httpClient.get<Country[]>(`${environment.baseURL}/country`)
   }
   getCountryById(id: string){
-    return this.httpClient.get<Country>(`${environment.baseURL}/country/${id}`)
+    return this.httpClient.get<Country>(`${environment.baseURL}/country/id=${id}`)
   }
   getCountryByName(name: string){
     return this.httpClient.get<Country>(`${environment.baseURL}/country/name=${name}`)

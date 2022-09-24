@@ -12,17 +12,10 @@ import { Airport } from '../models/airport';
   providedIn: 'root'
 })
 export class TripsService {
-  private tripSubject: BehaviorSubject<Trip>;
-  public trip: Observable<Trip>;
 
-  constructor(private httpClient: HttpClient, private router : Router) { 
-    this.tripSubject = new BehaviorSubject<Trip>(JSON.parse(localStorage.getItem('trip')));
-    this.trip = this.tripSubject.asObservable();
+  constructor(private httpClient: HttpClient) { 
   }
 
-  public get tripValue(): Trip{
-    return this.tripSubject.value;
-  }
 
   addTrip(trip: Trip){
     return this.httpClient.post(`${environment.baseURL}/trip/`, trip)
@@ -32,41 +25,41 @@ export class TripsService {
   }
 
   removeTripById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/trip/delete/${id}`)
+    return this.httpClient.get(`${environment.baseURL}/trip/delete/id=${id}`)
   }
 
   restoreTripById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/trip/restore/${id}`)
+    return this.httpClient.get(`${environment.baseURL}/trip/restore/id=${id}`)
   }
 
   findTripById(id: string) {
-    return this.httpClient.get<Trip>(`${environment.baseURL}/trip/${id}`);
+    return this.httpClient.get<Trip>(`${environment.baseURL}/trip/id=${id}`);
 }
 findPromotedTrips(){
   return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/promoted/`)
     }
 
   findTripByDepartureCity(departureCity : City){
-return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city/${departureCity}`)
+return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city=${departureCity}`)
   }
 
   findTripByArrivalCity(arrivalCity : City){
-    return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_city/${arrivalCity}`)
+    return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_city=${arrivalCity}`)
       }
 
   findTripByDepartureAndArrivalCity(departureCity: City, arrivalCity:City){
-        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city/${departureCity}/arrival_city/${arrivalCity}`)
+        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city=${departureCity}/arrival_city=${arrivalCity}`)
       }
  
   findTripByDepartureAirport(departureAirport : Airport){
-        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport/${departureAirport}`)
+        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport=${departureAirport}`)
           }
         
   findTripByArrivalAirport(arrivalAirport : Airport){
-            return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_airport/${arrivalAirport}`)
+            return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_airport=${arrivalAirport}`)
               }
         
   findTripByDepartureAndArrivalAirport(departureAirport: Airport, arrivalAirport:Airport){
-                return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport/${departureAirport}/arrival_airport/${arrivalAirport}`)
+                return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport=${departureAirport}/arrival_airport=${arrivalAirport}`)
               }
 }

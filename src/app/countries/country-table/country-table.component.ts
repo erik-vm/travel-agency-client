@@ -23,7 +23,7 @@ countries : Array<Country> = [];
     })
   }
   removeCountry(id:string): void{
-    this.countryService.restoreCountryById(id).subscribe(()=>{
+    this.countryService.removeCountryById(id).subscribe(()=>{
       this.getCountries();
     })
   }

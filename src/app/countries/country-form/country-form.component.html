@@ -1,5 +1,4 @@
-<section class="continent-form">
-    <div class="container">
+    <div class="country-form">
       <form [formGroup]="countryForm" (ngSubmit)="onSubmit()" class="form-signin">
          <h2>{{isEditing ? 'Edit' : 'Add'}} the country</h2>
          <div id="data" class="row">
@@ -12,7 +11,7 @@
         </div>
           <div class="col-6">
           <div class="form-group">
-            <label for="capital">Continent</label>
+            <label for="continent">Continent</label>
             <select class="form-select" aria-label="Default select example">
               <option selected>Select continent</option>
               <option *ngFor="let cont of continents">{{cont.name}}</option>

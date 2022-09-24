@@ -41,9 +41,9 @@ export class CountryFormComponent implements OnInit {
         this.countryService.getCountryById(params.id).subscribe((data: any) =>{
           this.countryForm.patchValue(data);
         })
-
       }
     })
+    this.getContinents();
   }
 
   onSubmit(): void{

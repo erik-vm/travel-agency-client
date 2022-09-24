@@ -9,25 +9,19 @@ import { Continent } from '../models/continent';
   providedIn: 'root'
 })
 export class ContinentsService {
-  private continentSubject: BehaviorSubject<Continent>;
-  public continent: Observable<Continent>;
 
-  constructor(private httpClient: HttpClient) { 
-    this.continentSubject = new BehaviorSubject<Continent>(JSON.parse(localStorage.getItem('continent')));
-    this.continent = this.continentSubject.asObservable();
+  constructor(private http: HttpClient) { 
   }
-  public get continentValue(): Continent{
-    return this.continentSubject.value;
-  }
+  
 
   getAllContinents(){
-    return this.httpClient.get<Continent[]>(`${environment.baseURL}/continent`)
+    return this.http.get<Continent[]>(`${environment.baseURL}/continent`)
   }
   getContinentById(id: string){
-    return this.httpClient.get<Continent>(`${environment.baseURL}/continent/${id}`)
+    return this.http.get<Continent>(`${environment.baseURL}/continent/id=${id}`)
   }
   getContinentByName(name: string){
-    return this.httpClient.get<Continent>(`${environment.baseURL}/continent/name=${name}`)
+    return this.http.get<Continent>(`${environment.baseURL}/continent/name=${name}`)
   }
 
 

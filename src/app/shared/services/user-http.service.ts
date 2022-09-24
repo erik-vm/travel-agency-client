@@ -25,7 +25,6 @@ export class UserHttp {
 login(username, password) {
     return this.httpClient.post<User>(`${environment.baseURL}/users/login`, { username, password })
         .pipe(map(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
             this.userSubject.next(user);
             return user;
@@ -33,10 +32,9 @@ login(username, password) {
 }
 
 logout() {
-    // remove user from local storage and set current user to null
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    this.router.navigate(['/account/login']);
+    this.router.navigate(['/home']);
 }
 
 register(user: User) {
@@ -48,7 +46,7 @@ getAll() {
 }
 
 getById(id: string) {
-    return this.httpClient.get<User>(`${environment.baseURL}/users/${id}`);
+    return this.httpClient.get<User>(`${environment.baseURL}/users/id=${id}`);
 }
 
 update(id, params) {
