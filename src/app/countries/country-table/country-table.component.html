@@ -12,10 +12,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let country of countries;let i = index">
-        <td>{{ country.name}}</td>
-        <td>{{ country.continent.name}}</td>
-        <td><button type="button" class="btn btn-sm btn-danger" (click)="removeCountry(country.id)">DELETE</button> </td>
-        <td><button type="button" class="btn btn-sm btn-primary" [routerLink]="['/countries/edit', country.id]">EDIT</button> </td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.continent.name }}</td>
+        <td>
+        <button type="button" class="btn btn-sm btn-danger" *ngIf="country.active" (click)="removeCountry(country.id)">DELETE</button> 
+        <button type="button" *ngIf="!country.active" class="btn btn-sm btn-warning" (click)="restoreCountry(country.id)">RESTORE</button> 
+        <button type="button" *ngIf="country.active" class="btn btn-sm btn-primary" [routerLink]="['/countries/edit', country.id]">EDIT</button> 
+      </td>
       </tr>
     </tbody>
  </table>

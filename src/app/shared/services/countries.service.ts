@@ -13,6 +13,7 @@ export class CountriesService {
   constructor(private httpClient: HttpClient) { 
   }
 
+  private AIRPORT_BASE_URL = 'airport/';
 
   addCountry(country: Country){
     return this.httpClient.post(`${environment.baseURL}/country/`, country)
@@ -22,20 +23,20 @@ export class CountriesService {
   }
 
   removeCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/delete/id=${id}`)
+    return this.httpClient.get(`${environment.baseURL}/country/delete/` + id)
   }
 
   restoreCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/restore/id=${id}`)
+    return this.httpClient.get(`${environment.baseURL}/country/restore/` + id)
   }
 
   getAllCountries(){
     return this.httpClient.get<Country[]>(`${environment.baseURL}/country`)
   }
   getCountryById(id: string){
-    return this.httpClient.get<Country>(`${environment.baseURL}/country/id=${id}`)
+    return this.httpClient.get(`${environment.baseURL}/country/` + id)
   }
   getCountryByName(name: string){
-    return this.httpClient.get<Country>(`${environment.baseURL}/country/name=${name}`)
+    return this.httpClient.get(`${environment.baseURL}/country/find-by-name?name=` + name)
   }
 }

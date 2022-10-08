@@ -24,7 +24,13 @@ countries : Array<Country> = [];
   }
   removeCountry(id:string): void{
     this.countryService.removeCountryById(id).subscribe(()=>{
-      this.getCountries();
+      this.ngOnInit();
+    })
+  }
+
+  restoreCountry(id:string): void{
+    this.countryService.restoreCountryById(id).subscribe(()=>{
+      this.ngOnInit();
     })
   }
 

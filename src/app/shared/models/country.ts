@@ -4,5 +4,5 @@ export interface Country {
     id: string,
     name: string,
     continent: Continent
-    isActive: boolean
+    active: boolean
 }

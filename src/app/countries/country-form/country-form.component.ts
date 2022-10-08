@@ -30,7 +30,7 @@ export class CountryFormComponent implements OnInit {
 
     countryForm : FormGroup = this.fb.group({
       id: null,
-      countryName : [null, [Validators.required]],
+      name : [null, [Validators.required]],
       continent: null
     })
 
@@ -38,8 +38,11 @@ export class CountryFormComponent implements OnInit {
     this.route.params.subscribe((params) =>{
       if(params.id){
         this.isEditing = true;
-        this.countryService.getCountryById(params.id).subscribe((data: any) =>{
-          this.countryForm.patchValue(data);
+        this.countryService.getCountryById(params.id).subscribe((data: any) =>{      
+         this.countryForm.patchValue({
+          name: data.name,
+          continent: data.continent.id
+         });
         })
       }
     });

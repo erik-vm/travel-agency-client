@@ -4,17 +4,17 @@
          <div id="data" class="row">
           <div class="col-6">
           <div class="form-group">
-            <label for="country-name">Country name</label>
-            <input type="text" id="country-name" class="form-control" formControlName="countryName">
-            <span class="help-block" *ngIf="countryForm.get('countryName')?.errors?.required && countryForm.get('countryName')?.touched">It is a required value</span>
+            <label for="name">Country name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+            <span class="help-block" *ngIf="countryForm.get('name')?.errors?.required && countryForm.get('name')?.touched">It is a required value</span>
           </div>
         </div>
           
         <div class="col-6">
           <div class="form-group">
             <label for="continent">Continent</label>
-            <select id="continent" class="form-control">
-              <option *ngFor="let continent of continents" [value]="continent.name">{{ continent.name }}</option>
+            <select id="continent" class="form-control" formControlName="continent">
+              <option *ngFor="let continent of continents" [value]="continent.id">{{ continent.name }}</option>
             </select>
           </div>
         </div>

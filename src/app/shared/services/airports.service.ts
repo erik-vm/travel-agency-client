@@ -8,39 +8,39 @@ import { City } from '../models/city';
   providedIn: 'root'
 })
 export class AirportsService {
-
+  private AIRPORT_BASE_URL = 'airport/';
   
   constructor(private http: HttpClient) {  }
 
   createAirport(airport: Airport){
-   return this.http.post(`${environment.baseURL}/airport`, airport)
+   return this.http.post(this.AIRPORT_BASE_URL, airport)
   }
 
   updateAirport(airport: Airport){
-   return this.http.post(`${environment.baseURL}/airport/update`, airport)
+   return this.http.post(this.AIRPORT_BASE_URL + 'update', airport)
       }
 
   deleteAirportById(id: string){
-   return this.http.get<Airport>(`${environment.baseURL}/airport/restore/id=${id}`)
+   return this.http.get<Airport>(this.AIRPORT_BASE_URL + 'delete/' + id)
     }
 
   restoreAirportById(id: string){
-   return this.http.get<Airport>(`${environment.baseURL}/airport/delete/id=${id}`)
+   return this.http.get<Airport>(this.AIRPORT_BASE_URL + 'restore/' + id)
   }
 
   getAllAirports(){
-    return this.http.get<Airport[]>(`${environment.baseURL}/airport`)
+    return this.http.get<Airport[]>(this.AIRPORT_BASE_URL)
   }
 
-  getAllAirportsFromCity(city : City){
-    return this.http.get<Airport[]>(`${environment.baseURL}/airport/city`)
-  }
+  // getAllAirportsFromCity(city : City){
+  //   return this.http.get<Airport[]>(this.AIRPORT_BASE_URL + 'city', city)
+  // }
 
   getAirportById(id: string){
-    return this.http.get<Airport>(`${environment.baseURL}/airport/id=${id}`)
+    return this.http.get<Airport>(this.AIRPORT_BASE_URL + id)
   }
 
   getAirportByName(name: string){
-    return this.http.get<Airport>(`${environment.baseURL}/airport/name=${name}`)
+    return this.http.get<Airport>(this.AIRPORT_BASE_URL + name)
   }
 }
