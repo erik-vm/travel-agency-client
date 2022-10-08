@@ -13,30 +13,30 @@ export class CountriesService {
   constructor(private httpClient: HttpClient) { 
   }
 
-  private AIRPORT_BASE_URL = 'airport/';
+  private COUNTRY_BASE_URL = 'country';
 
   addCountry(country: Country){
-    return this.httpClient.post(`${environment.baseURL}/country/`, country)
+    return this.httpClient.post(this.COUNTRY_BASE_URL, country)
   }
   updateCountry(country: Country){
-    return this.httpClient.post(`${environment.baseURL}/country/update`, country)
+    return this.httpClient.post(this.COUNTRY_BASE_URL + '/update', country)
   }
 
   removeCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/delete/` + id)
+    return this.httpClient.get(this.COUNTRY_BASE_URL + '/delete/' + id)
   }
 
   restoreCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/restore/` + id)
+    return this.httpClient.get(this.COUNTRY_BASE_URL + '/restore/' + id)
   }
 
   getAllCountries(){
-    return this.httpClient.get<Country[]>(`${environment.baseURL}/country`)
+    return this.httpClient.get<Country[]>(this.COUNTRY_BASE_URL)
   }
   getCountryById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/country/` + id)
+    return this.httpClient.get(this.COUNTRY_BASE_URL + '/' + id)
   }
   getCountryByName(name: string){
-    return this.httpClient.get(`${environment.baseURL}/country/find-by-name?name=` + name)
+    return this.httpClient.get(this.COUNTRY_BASE_URL + '/find-by-name?name=' + name)
   }
 }

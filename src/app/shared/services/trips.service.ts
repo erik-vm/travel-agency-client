@@ -16,31 +16,32 @@ export class TripsService {
   constructor(private httpClient: HttpClient) { 
   }
 
+  private TRIP_BASE_URL = 'trip';
 
   addTrip(trip: Trip){
-    return this.httpClient.post(`${environment.baseURL}/trip/`, trip)
+    return this.httpClient.post(this.TRIP_BASE_URL, trip)
   }
   updateTrip(trip: Trip){
-    return this.httpClient.post(`${environment.baseURL}/trip/update`, trip)
+    return this.httpClient.post(this.TRIP_BASE_URL + '/update', trip)
   }
 
   removeTripById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/trip/delete/id=${id}`)
+    return this.httpClient.get(this.TRIP_BASE_URL + '/delete/' + id)
   }
 
   restoreTripById(id: string){
-    return this.httpClient.get(`${environment.baseURL}/trip/restore/id=${id}`)
+    return this.httpClient.get(this.TRIP_BASE_URL + '/restore/' + id)
   }
 
   findTripById(id: string) {
-    return this.httpClient.get<Trip>(`${environment.baseURL}/trip/id=${id}`);
+    return this.httpClient.get<Trip>(this.TRIP_BASE_URL + '/' + id);
 }
 findPromotedTrips(){
-  return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/promoted/`)
+  return this.httpClient.get<Trip[]>(this.TRIP_BASE_URL + '/promoted/')
     }
 
   findTripByDepartureCity(departureCity : City){
-return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city=${departureCity}`)
+return this.httpClient.get<Trip[]>(this.TRIP_BASE_URL + )
   }
 
   findTripByArrivalCity(arrivalCity : City){

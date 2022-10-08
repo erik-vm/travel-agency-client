@@ -11,37 +11,38 @@ export class CitiesService {
 
   constructor(private http: HttpClient) { }
 
+  private CITY_BASE_URL = 'city';
 
       createCity(city: City){
-       return this.http.post(`${environment.baseURL}/city`, city)
+       return this.http.post(this.CITY_BASE_URL, city)
       }
     
       updateCity(city: City){
-       return this.http.post(`${environment.baseURL}/city/update`, city)
+       return this.http.post(this.CITY_BASE_URL + '/update', city)
           }
     
       deleteCityById(id: string){
-       return this.http.get<City>(`${environment.baseURL}/city/restore/id=${id}`)
+       return this.http.get<City>(this.CITY_BASE_URL + '/delete/' + id)
           }
     
       restoreCityById(id: string){
-        return this.http.get<City>(`${environment.baseURL}/city/delete/id=${id}`)
+        return this.http.get<City>(this.CITY_BASE_URL + '/restore/' + id)
           }
     
       getAllCities(){
-        return this.http.get<City[]>(`${environment.baseURL}/city`)
+        return this.http.get<City[]>(this.CITY_BASE_URL)
       }
     
-      getAllCitiesFromCountry(country : Country){
-        return this.http.get<City[]>(`${environment.baseURL}/city/country`)
-      }
+      // getAllCitiesFromCountry(country : Country){
+      //   return this.http.get<City[]>(this.CITY_BASE_URL, country)
+      // }
     
       getCityById(id: string){
-        return this.http.get<City>(`${environment.baseURL}/city/id=${id}`)
+        return this.http.get<City>(this.CITY_BASE_URL + '/' + id)
       }
     
       getCityByName(name: string){
-        return this.http.get<City>(`${environment.baseURL}/city/name=${name}`)
+        return this.http.get<City>(this.CITY_BASE_URL + '/' +name)
       }
 
 

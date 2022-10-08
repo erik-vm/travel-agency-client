@@ -11,36 +11,38 @@ export class HotelsService {
 
   constructor(private http: HttpClient) { }
 
+  private HOTEL_BASE_URL = 'hotel';
+
   createHotel(hotel: Hotel){
-    return this.http.post(`${environment.baseURL}/hotel`, hotel)
+    return this.http.post(this.HOTEL_BASE_URL, hotel)
    }
  
    updateHotel(hotel: Hotel){
-    return this.http.post(`${environment.baseURL}/hotel/update`, hotel)
+    return this.http.post(this.HOTEL_BASE_URL + 'update', hotel)
        }
  
    deleteHotelById(id: string){
-    return this.http.get<Hotel>(`${environment.baseURL}/hotel/restore/id=${id}`)
+    return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/delete/' + id)
      }
  
    restoreHotelById(id: string){
-    return this.http.get<Hotel>(`${environment.baseURL}/hotel/delete/id=${id}`)
+    return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/restore/' + id)
    }
  
    getAllHotels(){
-     return this.http.get<Hotel[]>(`${environment.baseURL}/hotel`)
+     return this.http.get<Hotel[]>(this.HOTEL_BASE_URL)
    }
  
-   getAllHotelsFromCity(city : City
-    ){
-     return this.http.get<Hotel[]>(`${environment.baseURL}/hotel/city`)
-   }
+  //  getAllHotelsFromCity(city : City
+  //   ){
+  //    return this.http.get<Hotel[]>(this.HOTEL_BASE_URL, city)
+  //  }
  
    getHotelById(id: string){
-     return this.http.get<Hotel>(`${environment.baseURL}/hotel/id=${id}`)
+     return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/' + id)
    }
  
    getHotelByName(name: string){
-     return this.http.get<Hotel>(`${environment.baseURL}/hotel/name=${name}`)
+     return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/' + name)
    }
 }

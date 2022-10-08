@@ -11,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowseTripsComponent } from './trips/browse-trips/browse-trips.component';
 import { SearchTripsComponent } from './trips/search-trips/search-trips.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { TripFormComponent } from './trips/trip-form/trip-form.component';
 import { CountryFormComponent } from './countries/country-form/country-form.component';
 import { CityFormComponent } from './cities/city-form/city-form.component';
@@ -21,6 +20,8 @@ import { CityTableComponent } from './cities/city-table/city-table.component';
 import { CountryTableComponent } from './countries/country-table/country-table.component';
 import { HotelTableComponent } from './hotels/hotel-table/hotel-table.component';
 import { HotelFormComponent } from './hotels/hotel-form/hotel-form.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { AppInterceptor } from './shared/interceptor/app.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,11 @@ import { HotelFormComponent } from './hotels/hotel-form/hotel-form.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

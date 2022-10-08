@@ -13,15 +13,16 @@ export class ContinentsService {
   constructor(private http: HttpClient) { 
   }
   
+  private CONTINENT_BASE_URL = 'continent';
 
   getAllContinents(){
-    return this.http.get<Continent[]>(`${environment.baseURL}/continent`)
+    return this.http.get<Continent[]>(this.CONTINENT_BASE_URL)
   }
   getContinentById(id: string){
-    return this.http.get<Continent>(`${environment.baseURL}/continent/id=${id}`)
+    return this.http.get<Continent>(this.CONTINENT_BASE_URL + '/' + id)
   }
   getContinentByName(name: string){
-    return this.http.get<Continent>(`${environment.baseURL}/continent/name=${name}`)
+    return this.http.get<Continent>(this.CONTINENT_BASE_URL + '/' + name)
   }
 
 
