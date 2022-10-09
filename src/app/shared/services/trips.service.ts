@@ -41,7 +41,7 @@ findPromotedTrips(){
     }
 
   findTripByDepartureCity(departureCity : City){
-return this.httpClient.get<Trip[]>(this.TRIP_BASE_URL + )
+return this.httpClient.get<Trip[]>(this.TRIP_BASE_URL  )
   }
 
   findTripByArrivalCity(arrivalCity : City){

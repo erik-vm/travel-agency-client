@@ -33,7 +33,7 @@ export class AirportsService {
   }
 
   getAllAirportsFromCity(city : City){
-    return this.http.get<Airport[]>(this.AIRPORT_BASE_URL + 'city?name=' + city)
+    return this.http.post<Airport[]>(this.AIRPORT_BASE_URL + '/city', city)
   }
 
   getAirportById(id: string){

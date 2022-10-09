@@ -10,7 +10,7 @@ import { Country } from '../models/country';
 })
 export class CountriesService {
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
   }
 
   private COUNTRY_BASE_URL = 'country';
@@ -19,6 +19,7 @@ export class CountriesService {
     return this.httpClient.post(this.COUNTRY_BASE_URL, country)
   }
   updateCountry(country: Country){
+    console.log(country);
     return this.httpClient.post(this.COUNTRY_BASE_URL + '/update', country)
   }
 
