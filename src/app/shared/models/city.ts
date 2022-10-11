@@ -1,8 +1,15 @@
 import { Country } from "./country";
 
-export interface City {
-    id: string,
-    name: string,
+export class City {
+    id: string
+    name: string
     country: Country
-    isActive: boolean
+    active: boolean
+
+    constructor(id: string, name: string, country: Country, active: boolean) {
+        this.id = id;
+        this.name = name;
+        this.country = country;
+        this.active = active;
+      }
 }

@@ -22,7 +22,7 @@ export class ContinentsService {
     return this.http.get<Continent>(this.CONTINENT_BASE_URL + '/' + id)
   }
   getContinentByName(name: string){
-    return this.http.get<Continent>(this.CONTINENT_BASE_URL + '/' + name)
+    return this.http.get<Continent>(this.CONTINENT_BASE_URL +'/find-by-name?name=' + name)
   }
 
 

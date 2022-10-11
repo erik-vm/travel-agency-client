@@ -1,8 +1,15 @@
 import { City } from "./city";
 
-export interface Airport {
-    id: string,
-    name: string,
-    city: City,
-    isActive: boolean
+export class Airport {
+    id: string
+    name: string
+    city: City
+    active: boolean
+
+    constructor(id: string, name: string, city: City, active: boolean) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.active = active;
+      }
 }

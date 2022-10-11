@@ -41,26 +41,21 @@ findPromotedTrips(){
     }
 
   findTripByDepartureCity(departureCity : City){
-return this.httpClient.get<Trip[]>(this.TRIP_BASE_URL  )
+return this.httpClient.post<Trip[]>(this.TRIP_BASE_URL  + "/find-by-departure-city", departureCity )
   }
 
   findTripByArrivalCity(arrivalCity : City){
-    return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_city=${arrivalCity}`)
+    return this.httpClient.post<Trip[]>(this.TRIP_BASE_URL+'/find-by-arrival-city', arrivalCity)
       }
 
-  findTripByDepartureAndArrivalCity(departureCity: City, arrivalCity:City){
-        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_city=${departureCity}/arrival_city=${arrivalCity}`)
-      }
  
   findTripByDepartureAirport(departureAirport : Airport){
-        return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport=${departureAirport}`)
+        return this.httpClient.post<Trip[]>(this.TRIP_BASE_URL+'/find-by-departure-airport', departureAirport)
           }
         
   findTripByArrivalAirport(arrivalAirport : Airport){
-            return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/arrival_airport=${arrivalAirport}`)
+            return this.httpClient.post<Trip[]>(this.TRIP_BASE_URL+'/find-by-arrival-airport', arrivalAirport)
               }
         
-  findTripByDepartureAndArrivalAirport(departureAirport: Airport, arrivalAirport:Airport){
-                return this.httpClient.get<Trip[]>(`${environment.baseURL}/trip/departure_airport=${departureAirport}/arrival_airport=${arrivalAirport}`)
-              }
+  
 }

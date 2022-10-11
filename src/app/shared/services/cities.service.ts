@@ -33,16 +33,16 @@ export class CitiesService {
         return this.http.get<City[]>(this.CITY_BASE_URL)
       }
     
-      // getAllCitiesFromCountry(country : Country){
-      //   return this.http.get<City[]>(this.CITY_BASE_URL, country)
-      // }
+      getAllCitiesFromCountry(country : Country){
+        return this.http.post<City[]>(this.CITY_BASE_URL + '/country', country)
+      }
     
       getCityById(id: string){
         return this.http.get<City>(this.CITY_BASE_URL + '/' + id)
       }
     
       getCityByName(name: string){
-        return this.http.get<City>(this.CITY_BASE_URL + '/' +name)
+        return this.http.get<City>(this.CITY_BASE_URL + '/find-by-name?name=' +name)
       }
 
 

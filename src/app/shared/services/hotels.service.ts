@@ -18,7 +18,7 @@ export class HotelsService {
    }
  
    updateHotel(hotel: Hotel){
-    return this.http.post(this.HOTEL_BASE_URL + 'update', hotel)
+    return this.http.post(this.HOTEL_BASE_URL + '/update', hotel)
        }
  
    deleteHotelById(id: string){
@@ -33,16 +33,16 @@ export class HotelsService {
      return this.http.get<Hotel[]>(this.HOTEL_BASE_URL)
    }
  
-  //  getAllHotelsFromCity(city : City
-  //   ){
-  //    return this.http.get<Hotel[]>(this.HOTEL_BASE_URL, city)
-  //  }
+   getAllHotelsFromCity(city : City
+    ){
+     return this.http.post<Hotel[]>(this.HOTEL_BASE_URL + '/city', city)
+   }
  
    getHotelById(id: string){
      return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/' + id)
    }
  
    getHotelByName(name: string){
-     return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/' + name)
+     return this.http.get<Hotel>(this.HOTEL_BASE_URL + '/find-by-name?name=' + name)
    }
 }
